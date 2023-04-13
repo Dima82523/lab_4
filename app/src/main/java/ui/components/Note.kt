@@ -1,12 +1,14 @@
+package ui.components
+
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Checkbox
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.topic2.android.notes.theme.rwGreen
-import androidx.compose.ui.Modifier
 
 @Composable
 fun Note() {

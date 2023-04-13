@@ -1,22 +1,24 @@
-import android.graphics.ColorFilter
+package ui.components
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.notes.routing.JetNotesRouter
-import com.example.notes.routing.Screen
-import androidx.example.notes.ui.theme.JetNotesTheme
-import androidx.example.notes.ui.theme.JetNotesThemeSettings
+import com.topic2.android.notes.routing.NotesRouter
 import com.topic2.android.notes.routing.Screen
+import com.topic2.android.notes.theme.NotesTheme
+import com.topic2.android.notes.theme.NotesThemeSettings
 
 
 @Composable
@@ -41,8 +43,8 @@ private fun AppDrawerHeader(){
 @Preview
 @Composable
 fun AppDrawerHeaderPreview(){
-    JetNotesTheme {
-        AppDraweHeader()
+    NotesTheme {
+        AppDrawerHeader()
     }
 }
 
@@ -106,7 +108,7 @@ private fun ScreenNavigationButton(
 @Preview
 @Composable
 fun ScreenNavigationButtonPreviev(){
-    JetNotesTheme{
+    NotesTheme{
         ScreenNavigationButton(
             icon = Icons.Filled.Home,
             label = "Заметки",
@@ -132,8 +134,8 @@ private fun LightDarkThemeItem(){
                 .align(alignment = Alignment.CenterVertically)
         )
         Switch(
-            checked = JetNotesThemeSettings.isDarkThemeEnabled,
-            onCheckedChange = { JetNotesThemeSettings.isDarkThemeEnabled = it},
+            checked = NotesThemeSettings.isDarkThemeEnabled,
+            onCheckedChange = { NotesThemeSettings.isDarkThemeEnabled = it},
             modifier = Modifier
                 .padding(start = 8.dp, end = 8.dp)
                 .align(alignment = Alignment.CenterVertically)
@@ -144,7 +146,7 @@ private fun LightDarkThemeItem(){
 @Preview
 @Composable
 fun LightDarkThemeItemPreview(){
-    JetNotesTheme {
+    NotesTheme {
         LightDarkThemeItem()
     }
 }
@@ -160,20 +162,20 @@ fun AppDrawer(
         Divider(color = MaterialTheme.colors.onSurface.copy(alpha = .2f))
 
         ScreenNavigationButton(
-            icon = Icon.Filled.Home,
+            icon = Icons.Filled.Home,
             label = "Заметки",
             isSelected = currentScreen == Screen.Notes,
             onClick = {
-                JetNotesRouter.navigateTo(Screen.Notes)
+                NotesRouter.navigateTo(Screen.Notes)
                 closeDraweAction()
             }
         )
         ScreenNavigationButton(
-            icon = Icon.Filled.Delete,
+            icon = Icons.Filled.Delete,
             label = "Корзина",
             isSelected = currentScreen == Screen.Trash,
             onClick = {
-                JetNotesRouter.navigateTo(Screen.Trash)
+                NotesRouter.navigateTo(Screen.Trash)
                 closeDraweAction()
             }
         )
@@ -184,7 +186,7 @@ fun AppDrawer(
 @Preview
 @Composable
 fun AppDrawerPreview(){
-    JetNotesTheme{
+    NotesTheme{
         AppDrawer(Screen.Notes, {})
     }
 }
