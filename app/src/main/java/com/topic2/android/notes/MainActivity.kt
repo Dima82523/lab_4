@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
           drawerContent = {
             AppDrawer(
               currentScreen = Screen.Notes,
-              closeDraweAction = {
+              closeDrawerAction = {
                 coroutineScope.launch {
                   scaffoldState.drawerState.close()
                 }
